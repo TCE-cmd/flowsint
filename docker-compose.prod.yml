@@ -67,6 +67,8 @@ services:
     image: ghcr.io/reconurge/flowsint-api:${FLOWSINT_VERSION:-latest}
     container_name: flowsint-api-prod
     restart: always
+    group_add:
+      - "989"
     ports:
       # The frontend's nginx proxies /api/ to this service over the Docker
       # network — direct access is host-only, for debugging.
@@ -100,6 +102,8 @@ services:
     image: ghcr.io/reconurge/flowsint-api:${FLOWSINT_VERSION:-latest}
     container_name: flowsint-celery-prod
     restart: always
+    group_add:
+      - "989"
     command:
       [
         "celery",
