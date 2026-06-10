@@ -151,9 +151,11 @@ services:
     image: ghcr.io/reconurge/flowsint-app:${FLOWSINT_VERSION:-latest}
     container_name: flowsint-app-prod
     restart: always
-    ports:
+    # ports:
       # The only network-facing port. Serves the UI and proxies /api/ to the API.
-      - "5173:8080"
+      # - "5173:8080"
+    expose:
+      - "8080"
     networks:
       - flowsint_network
     depends_on:
