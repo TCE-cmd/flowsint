@@ -156,6 +156,8 @@ services:
       # - "5173:8080"
     expose:
       - "8080"
+    labels:
+      - "traefik.http.services.flowsint-app.loadbalancer.server.port=8080"
     networks:
       - flowsint_network
     depends_on:
